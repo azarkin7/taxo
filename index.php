@@ -4,51 +4,78 @@
 <div class="container main">
 	<div class="row menu">
 		<ul>
-			<li><a href="#">Главная</a></li>
-			<li><a href="#">О нас</a></li>
-			<li><a href="#">Заказать машину</a></li>
-			<li><a href="#">Контакты</a></li>
+			<li><a href="index.php">Главная</a></li>
+			<li><a href="?page=about">О нас</a></li>
+			<li><a href="?page=taxi">Заказать машину</a></li>
+			<li><a href="?page=contacts">Контакты</a></li>
 		</ul>
 	</div>
 </div>
 <div class="container maincontent">
-	<div class="row">
-		<div class="col-md-4">
+	<?php
+	if($_GET['page']){
+		switch($_GET['page']){
+			case 'about': include "include/about.php";break;
+			case 'taxi': include "include/taxi.php";break;
+			case 'contacts': include "include/contacts.php";break;
+		}
 
-		</div>
-		<div class="col-md-8">
-			<form class="form-horizontal order">
+	}else{
+		include "include/index.php";
+	}
+
+	?>
+</div>
+<div id="parentpop">
+	<div class="popup">
+<h2>Регистрация</h2>
+<form class="form-horizontal">
   <div class="form-group">
-		<label for="from">Адрес отправления</label>
-		<input type="text" name="from" value="" class="form-control from" placeholder="Например: улица Чкалова 17">
+    <label for="inputsurname" class="col-sm-2 control-label">Фамилия</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputsurname" placeholder="Какая у вас фамилия?" placeholder>
+			<p class="showerr err1"></p>
+    </div>
   </div>
 	<div class="form-group">
-		<label for="from">На какое время</label>
-		<select class="form-control">
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select> <span>:</span>
-		<select class="form-control">
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select>
+    <label for="inputame" class="col-sm-2 control-label">Имя</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputname" placeholder="Какая у вас фамилия?" placeholder>
+			<p class="showerr err2"></p>
+    </div>
+  </div>
+	<div class="form-group">
+    <label for="inputmobile" class="col-sm-2 control-label">Телефон</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputmobile" placeholder="+38(095)123 45 69" placeholder>
+			<p class="showerr err3"></p>
+    </div>
+  </div>
+	<div class="form-group">
+    <label for="inputpassword" class="col-sm-2 control-label">Пароль</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputpassword" placeholder="" placeholder>
+			<p class="showerr err2"></p>
+    </div>
+  </div>
+	<div class="form-group">
+    <label for="inputpassword" class="col-sm-2 control-label">Повторите Пароль</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputpassword" placeholder="" placeholder>
+			<p class="showerr err2"></p>
+    </div>
   </div>
   <div class="form-group">
-		<label for="to">Адрес прибытия</label>
-		<input type="text" name="to" value="" class="form-control to" placeholder="Например: проулок Старовка 15">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-default btnregist">Зарегистрироваться</button>
+    </div>
   </div>
-
-	<button type="button" name="button" class="priceorder">Узнать цену</button>
 </form>
-<div id="map" style="width: 600px; height: 400px"></div>
-		</div>
-	</div>
+
+
+
+<a class="close" title="Закрыть" href="#close"></a>
+</div>
 </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>

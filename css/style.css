@@ -58,3 +58,43 @@ body{
   color: white;
   padding: 1% 3%;
 }
+#nowtime{
+  margin-right: 10px;
+}
+.now{
+  margin-left: 50px;
+}
+#parentpop {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+/* фон затемнения */
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed; /* фиксированное поцизионирование */
+    cursor: default; /* тип курсара */
+}
+#parentpop:target {
+    display: block;
+    delay:0.5s;
+    text-align: center;
+}
+.popup{
+  background-color: white;
+  z-index: 50;
+  margin: 0px auto;
+  left:30%;
+  right:30%;
+  width:40%;
+  border-radius: 5px;
+
+  padding: 10px;
+  min-height: 30%;
+}
+.showerr{
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
